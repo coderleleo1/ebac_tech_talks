@@ -1,0 +1,52 @@
+.hero {
+    padding-top: 64px;
+    padding-bottom: 100px;
+    background-image: url(../images/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover; // comando para a imagem completar todo o tamanho do container
+    position: relative; // obrigatório ter para funcionar o "quadrado escuro"
+
+    .container {
+        position: relative; // necessário para fazer o texto aparecer
+    }
+
+    &::before { // comando para escurecer a imagem no código acima. Fazendo uma alusão ao Powerpoint, adicionei um quadrado preto com um pouco de transparência por cima da imagem
+        position: absolute; // é obrigatório ter o position absolute e o position relative acima
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        content: '';
+        opacity: .7; // opacidade de 70%
+    }
+
+    &__text {
+        margin-top: 64px;
+        margin-bottom: 64px;
+        font-size: 40px;
+        line-height: 56px;
+        font-weight: 800;
+        text-align: center;
+    }
+
+    &__logo {
+        margin: 0 auto; // para centralizar a imagem, é necessário ter o display block para funcionar
+        height: 80px;
+        display: block;
+    }
+
+    @media (max-width: 640px) {
+        padding: 40px 0;
+
+        &__logo {
+            height: 40px;
+        }
+
+        &__text {
+            font-size: 22px;
+            line-height: 24px;
+            margin: 24px 0;
+        }
+    }
+}
